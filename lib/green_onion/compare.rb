@@ -66,7 +66,7 @@ module GreenOnion
     # Saves the visual diff as a separate file
     def save_visual_diff(org, fresh)
       x, y = @diff_index.map{ |xy| xy[0] }, @diff_index.map{ |xy| xy[1] }
-      @diffed_image = org.insert(-5, '_diff')
+      @diffed_image = org.dup.insert(-5, '_diff')
 
       begin
         @images.last.rect(x.min, y.min, x.max, y.max, ChunkyPNG::Color.rgb(0,255,0))
